@@ -1,0 +1,56 @@
+{
+  "name": "nx-semantic-release",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/nx-semantic-release/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "platform": "node",
+        "outputPath": "dist/apps/nx-semantic-release",
+        "format": ["cjs"],
+        "bundle": false,
+        "main": "apps/nx-semantic-release/src/main.ts",
+        "tsConfig": "apps/nx-semantic-release/tsconfig.app.json",
+        "assets": ["apps/nx-semantic-release/src/assets"],
+        "generatePackageJson": true,
+        "esbuildOptions": {
+          "sourcemap": true,
+          "outExtension": {
+            ".js": ".js"
+          }
+        }
+      },
+      "configurations": {
+        "development": {},
+        "production": {
+          "esbuildOptions": {
+            "sourcemap": false,
+            "outExtension": {
+              ".js": ".js"
+            }
+          }
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "nx-semantic-release:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "nx-semantic-release:build:development"
+        },
+        "production": {
+          "buildTarget": "nx-semantic-release:build:production"
+        }
+      }
+    }
+  },
+  "tags": []
+}
