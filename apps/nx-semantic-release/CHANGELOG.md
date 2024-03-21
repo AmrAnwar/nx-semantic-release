@@ -1,3 +1,15 @@
+## 0.4.0 (2024-03-21)
+
+
+### 🚀 Features
+
+- Update message ([d444167](https://github.com/AmrAnwar/nx-semantic-release/commit/d444167))
+
+
+### ❤️  Thank You
+
+- Amro @AmrAnwar
+
 ## 0.3.0 (2024-03-21)
 
 
