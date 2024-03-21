@@ -1,5 +1,19 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "release": {
+    "releaseTagPattern": "release/{projectName}/{version}",
+    "projectsRelationship": "independent",
+    "projects": ["nx-semantic-release"],
+    "version": {
+      "conventionalCommits": true
+    },
+    "changelog": {
+      "projectChangelog": {
+        "createRelease": "github"
+      }
+    }
+  },
+
   "namedInputs": {
     "default": ["{projectRoot}/**/*", "sharedGlobals"],
     "production": [
